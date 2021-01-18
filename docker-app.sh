@@ -51,3 +51,9 @@ rubocop() {
   pose exec app bin/rubocop
   set +x
 }
+
+flog() {
+  set -x
+  pose exec app bin/flog "$@"
+  set +x
+}

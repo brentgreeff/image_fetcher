@@ -17,3 +17,9 @@ Press [Enter] - to run all tests.
 ## Rubocop
 
 Please run `rubocop` before pushing.
+
+## Flog
+
+Looking for a refactor? `flog -g lib/`
+
+https://ruby.sadi.st/Flog.html

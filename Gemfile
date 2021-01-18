@@ -16,6 +16,7 @@ end
 
 group :development do
   gem 'rubocop', require: false
+  gem 'flog', require: false
 end
 
 group :test do
