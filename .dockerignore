@@ -1,0 +1,11 @@
+downloads/*
+spec/examples.txt
+coverage/*
+.env
+.DS_Store
+.git
+.gitignore
+log/*
+tmp/*
+spec/tmp
+.ruby-version
