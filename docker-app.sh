@@ -1,3 +1,9 @@
+download() {
+  echo -e "pose exec app ./lib/download.rb $@\n"
+  pose exec app ./lib/download.rb "$@"
+  return $?
+}
+
 app() {
   set -x
   pose exec app "$@"

@@ -2,17 +2,31 @@
 
 ## Local dev setup
 
+### Open a shell:
+
+`cd` into this downloaded repo.
+
 `source docker.sh` to make docker & compose easier to work with.
 
 `up` - to start the dev env.
 
+With `up` still running, open a second shell.
+
+In the second shell `source docker.sh`
+
+and then: `download -f example_files/urls.txt`
+
+Files downloaded will be printed in the first shell running `up`.
+
 ## Run tests
 
-`docker-compose exec api bin/guard` or the alias `guard`
+`source docker.sh`
 
-Saving a file will run corresponding test.
+Run `guard`
 
-Press [Enter] - to run all tests.
+Press [ Enter ] - to run all tests.
+
+Saving a file will run the corresponding test.
 
 ## Rubocop
 

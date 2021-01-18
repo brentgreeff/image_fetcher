@@ -15,6 +15,8 @@ Style/TrailingCommaInArrayLiteral:
   Enabled: false
 Style/BlockDelimiters:
   Enabled: false
+Style/RedundantInterpolation:
+  Enabled: false
 Metrics/BlockLength:
   Enabled: false
 Bundler/OrderedGems:
