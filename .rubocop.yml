@@ -1,0 +1,36 @@
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'spec/spec_helper.rb'
+    - 'config/**/*'
+    - 'bin/*'
+Style/Documentation:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Layout/LineLength:
+  Max: 100
+  IgnoredPatterns: ['^(\s+)?#']
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: false
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Enabled: false

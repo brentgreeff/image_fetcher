@@ -45,3 +45,9 @@ guard() {
   pose exec app bin/guard
   set +x
 }
+
+rubocop() {
+  set -x
+  pose exec app bin/rubocop
+  set +x
+}

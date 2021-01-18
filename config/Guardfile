@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 # https://github.com/guard/guard#readme
 
-directories %w(lib spec features config/Guardfile) \
- .select{|d| Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist")}
+directories %w[ lib spec features config/Guardfile ].select do |d|
+  Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist")
+end
 
 #  * bundler: 'bundle exec rspec'
 #  * bundler binstubs: 'bin/rspec'

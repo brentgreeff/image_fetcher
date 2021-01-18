@@ -13,3 +13,7 @@
 Saving a file will run corresponding test.
 
 Press [Enter] - to run all tests.
+
+## Rubocop
+
+Please run `rubocop` before pushing.
