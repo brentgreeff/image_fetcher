@@ -23,3 +23,8 @@ Please run `rubocop` before pushing.
 Looking for a refactor? `flog -g lib/`
 
 https://ruby.sadi.st/Flog.html
+
+## Simplecov
+
+`open coverage/index.html` to see current code coverage.
+Running specs normally or under guard will show coverage.

@@ -1,2 +1,4 @@
 /downloads/*
 !/downloads/.keep
+/coverage/*
+/spec/examples.txt
