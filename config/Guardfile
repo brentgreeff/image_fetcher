@@ -2,9 +2,7 @@
 
 # https://github.com/guard/guard#readme
 
-directories %w[ lib spec features config/Guardfile ].select do |d|
-  Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist")
-end
+directories ["lib", "spec"]
 
 #  * bundler: 'bundle exec rspec'
 #  * bundler binstubs: 'bin/rspec'
@@ -18,6 +16,8 @@ guard :rspec, cmd: "bundle exec rspec" do
   dsl = Guard::RSpec::Dsl.new(self)
 
   clearing :on
+
+  watch("config/Guardfile")
 
   # RSpec files
   rspec = dsl.rspec
