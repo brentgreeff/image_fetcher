@@ -2,7 +2,7 @@
 
 # https://github.com/guard/guard#readme
 
-directories ["lib", "spec"]
+directories %w[lib spec]
 
 #  * bundler: 'bundle exec rspec'
 #  * bundler binstubs: 'bin/rspec'
