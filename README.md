@@ -22,6 +22,10 @@ Files downloaded will be printed in the first shell running `up`.
 
 `source docker.sh`
 
+Run `dspec`
+
+### Interactive testing on save
+
 Run `guard`
 
 Press [ Enter ] - to run all tests.

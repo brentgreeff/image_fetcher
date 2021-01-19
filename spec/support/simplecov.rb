@@ -7,4 +7,4 @@ SimpleCov.start do
 
   add_group "lib", "lib"
 end
-puts "SimpleCov started successfully!"
+puts "SimpleCov started successfully! Root: #{SimpleCov.root}"

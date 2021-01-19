@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# https://github.com/simplecov-ruby/simplecov/issues/346
+# system calls are not included in coverage reports - only ruby that is required will be measured.
+
 RSpec.describe "running the script" do
   let(:download) { './lib/download.rb' }
 
