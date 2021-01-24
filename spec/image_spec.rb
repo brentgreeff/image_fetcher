@@ -26,11 +26,27 @@ RSpec.describe "Image" do
 
       it 'skips the first & downloads the second file' do
         with_modified_env MAX_SIZE: '5' do
-          Image.download(file, destination: 'downloads/tmp/')
+          expect {
+            Image.download(file, destination: 'downloads/tmp/')
+          }.to output(
+            a_string_including('http://httpbin/bytes/10 -- file is too large (max is 0MB) (Down::TooLarge)')
+          ).to_stderr
         end
         expect(
           File.exist? "downloads/tmp/02-01-2021_10.20.30_UTC/2"
         ).to be
+      end
+    end
+
+    context 'too many redirects' do
+      let(:file) { File.read 'example_files/too_many_redirects.txt' }
+
+      it 'prints an error' do
+        expect {
+          Image.download(file, destination: 'downloads/tmp/')
+        }.to output(
+          a_string_including('http://httpbin/redirect/3 -- too many redirects (Down::TooManyRedirects)')
+        ).to_stderr
       end
     end
   end

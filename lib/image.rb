@@ -25,8 +25,8 @@ class Image
         destination: "#{@path}/#{filename}",
         max_size: ENV.fetch('MAX_SIZE').to_i
       )
-    rescue Down::TooLarge
-      puts "#{url} is too large"
+    rescue Down::Error => e
+      warn "#{url} -- #{e} (#{e.class.name})"
     end
 
     def count_files
