@@ -6,6 +6,8 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'listen'
 gem "down", "~> 5.0"
+gem 'http_parser.rb'
+gem 'posix-spawn'
 
 group :development, :test do
   gem 'rspec'

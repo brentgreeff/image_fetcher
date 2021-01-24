@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "down"
+Down.backend :wget
 
 class Image
 
@@ -23,7 +24,9 @@ class Image
       Down.download(
         url,
         destination: "#{@path}/#{filename}",
-        max_size: ENV.fetch('MAX_SIZE').to_i
+        max_size: ENV.fetch('MAX_SIZE').to_i,
+        read_timeout: ENV.fetch('TIMEOUT').to_f,
+        tries: 3
       )
     rescue Down::Error => e
       warn "#{url} -- #{e} (#{e.class.name})"

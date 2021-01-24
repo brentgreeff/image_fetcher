@@ -23,6 +23,8 @@ Layout/SpaceInsideParens:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
+Metrics/MethodLength:
+  Max: 12
 Bundler/OrderedGems:
   Enabled: false
 Layout/LineLength:

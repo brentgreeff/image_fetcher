@@ -7,12 +7,13 @@ require_relative '../lib/image'
 RSpec.describe "Image" do
   before { Timecop.freeze(Time.local(2021, 1, 2, 10, 20, 30)) }
   after { Timecop.return }
+  let(:dest) { 'downloads/tmp/' }
 
   context '#download' do
 
     context 'one image' do
       let(:file) { File.read 'example_files/one_url.txt' }
-      before { Image.download(file, destination: 'downloads/tmp/') }
+      before { Image.download(file, destination: dest) }
 
       it 'downloads the file' do
         expect(
@@ -27,9 +28,11 @@ RSpec.describe "Image" do
       it 'skips the first & downloads the second file' do
         with_modified_env MAX_SIZE: '5' do
           expect {
-            Image.download(file, destination: 'downloads/tmp/')
+            Image.download(file, destination: dest)
           }.to output(
-            a_string_including('http://httpbin/bytes/10 -- file is too large (max is 0MB) (Down::TooLarge)')
+            a_string_including(
+              'http://httpbin/bytes/100001 -- file is too large (max is 0MB)'
+            )
           ).to_stderr
         end
         expect(
@@ -43,9 +46,27 @@ RSpec.describe "Image" do
 
       it 'prints an error' do
         expect {
-          Image.download(file, destination: 'downloads/tmp/')
+          Image.download(file, destination: dest)
         }.to output(
-          a_string_including('http://httpbin/redirect/3 -- too many redirects (Down::TooManyRedirects)')
+          a_string_including(
+            "http://httpbin/redirect/3 -- 2 redirections exceeded"
+          )
+        ).to_stderr
+      end
+    end
+
+    context 'timeout' do
+      let(:file) { File.read 'example_files/timeout.txt' }
+
+      it 'prints an error' do
+        expect {
+          with_modified_env TIMEOUT: '0.0001' do
+            Image.download(file, destination: dest)
+          end
+        }.to output(
+          a_string_including(
+            "http://httpbin/delay/10 -- #{"Read error (Connection timed out) in headers.\n" * 3}"
+          )
         ).to_stderr
       end
     end
