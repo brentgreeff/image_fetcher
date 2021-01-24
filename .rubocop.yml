@@ -19,6 +19,8 @@ Style/RedundantInterpolation:
   Enabled: false
 Style/NestedParenthesizedCalls:
   Enabled: false
+Layout/SpaceInsideParens:
+  Enabled: false
 Metrics/BlockLength:
   Enabled: false
 Bundler/OrderedGems:

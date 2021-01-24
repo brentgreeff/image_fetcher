@@ -1,6 +1,7 @@
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require "./spec/support/simplecov"
+require "./spec/support/climate_control"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
