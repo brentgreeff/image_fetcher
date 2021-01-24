@@ -17,6 +17,8 @@ Style/BlockDelimiters:
   Enabled: false
 Style/RedundantInterpolation:
   Enabled: false
+Style/NestedParenthesizedCalls:
+  Enabled: false
 Metrics/BlockLength:
   Enabled: false
 Bundler/OrderedGems:

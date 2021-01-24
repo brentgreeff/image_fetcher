@@ -5,6 +5,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'listen'
+gem "down", "~> 5.0"
 
 group :development, :test do
   gem 'rspec'
@@ -21,4 +22,5 @@ end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'timecop'
 end

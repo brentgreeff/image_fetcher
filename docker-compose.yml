@@ -13,3 +13,8 @@ services:
       - .env/development/app.env
     tty: true
     stdin_open: true
+
+  httpbin:
+    image: kennethreitz/httpbin
+    ports:
+      - "8080:80"

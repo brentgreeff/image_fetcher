@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require_relative "image"
+
 def banner
   <<~HEREDOC
     Usage: ./download -f example_files/urls.txt
@@ -34,7 +36,8 @@ def download_files(input_file)
     warn "Input file is empty"
     exit(false)
   end
-  puts "Files downloaded!"
+  count = Image.download(file, destination: ENV.fetch('DOWNLOAD_DIR'))
+  puts "#{count} File(s) downloaded!"
 end
 
 download_files(input_file)
